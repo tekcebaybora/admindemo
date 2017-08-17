@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+
+<!--[if !IE]><!-->
+<html lang="en">
+
+
+<head>
+    <script src="~/Scripts/kendo/2016.2.504/jquery.min.js"></script>
+    <script src="~/Scripts/kendo/2016.2.504/jszip.min.js"></script>
+    <script src="~/Scripts/kendo/2016.2.504/kendo.all.min.js"></script>
+    <script src="~/Scripts/kendo/2016.2.504/kendo.aspnetmvc.min.js"></script>
+    <script src="~/Scripts/kendo.modernizr.custom.js"></script>
+</head>
+
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+
+    <div class="page-content-wrapper">
+
+        <div class="page-content">
+
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        @Html.ActionLink("Anasayfa", "Index", "Home")
+                        <i class="fa fa-circle"></i>
+                    </li>
+                </ul>
+                <div class="page-toolbar">
+                    <div id="dashboard-report" class="pull-right tooltips btn btn-sm">
+
+                        <span class="thin uppercase hidden-xs">@DateTime.Now</span>
+                    </div>
+                </div>
+            </div>
+           
+
+         
+            <div class="clearfix"></div>
+            <div class="row">
+
+                @(Html.Kendo().Grid<AdminPseudoscops.Models.AppModel.GateAccessViewModel>()
+    .Name("EventTable")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.DeviceId).Width("20%");
+        columns.Bound(p => p.DeviceKey).Width("30%");
+        
+        columns.Bound(p => p.Location).Width("20%");
+        columns.Bound(p => p.IsActive).Width("10%");
+
+        columns.Command(command => {  command.Destroy(); }).Width("10%");
+    })
+  
+    .Editable(editable => editable.Mode(GridEditMode.InLine))
+    .Pageable()
+    .Sortable()
+    .Scrollable()
+   
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(20)
+        .Events(events => events.Error("error_handler"))
+        .Model(model => model.Id(p => p.DeviceId))
+ 
+        .Read(read => read.Action("Devices_Read", "Devices"))
+     
+   .Destroy(update => update.Action("Devices_Delete", "Devices"))
+    )
+                )
+                <script type="text/javascript">
+                    function error_handler(e) {
+                        if (e.errors) {
+                            var message = "Errors:\n";
+                            $.each(e.errors, function (key, value) {
+                                if ('errors' in value) {
+                                    $.each(value.errors, function () {
+                                        message += this + "\n";
+                                    });
+                                }
+                            });
+                            alert(message);
+                        }
+                    }
+                </script>
+                @*@section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+                    }*@
+            </div>
+
+            <br />
+            <div class="pull-right mt16 col-md-2">
+                
+                @Html.ActionLink("Cihaz Tanımla", "Create", "Devices", null, new { @class = "btn blue" })
+            </div>
+           
+
+        </div>
+        <!-- END CONTENT BODY -->
+    </div>
+    <!-- END CONTENT -->
+    <!-- BEGIN QUICK SIDEBAR -->
+    <!-- END QUICK SIDEBAR -->
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+    <!-- END FOOTER -->
+
+</body>
+
+
+
+
+
+<!-- Mirrored from www.keenthemes.com/preview/metronic/theme/admin_1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 03 Apr 2016 22:08:00 GMT -->
+</html>
+
+
+
+
+

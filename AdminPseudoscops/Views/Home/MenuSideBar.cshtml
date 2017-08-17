@@ -1,0 +1,119 @@
+﻿<div class="page-sidebar-wrapper">
+    <!-- BEGIN SIDEBAR -->
+    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+    <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+    <div class="page-sidebar navbar-collapse collapse">
+        <!-- BEGIN SIDEBAR MENU -->
+        <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+        <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+        <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+        <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+        <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+            <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+            <li class="sidebar-toggler-wrapper hide">
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                <div class="sidebar-toggler"> </div>
+                <!-- END SIDEBAR TOGGLER BUTTON -->
+            </li>
+            <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+            <div class="clearfix"> </div>
+            <li class="nav-item start active open">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">AnaSayfa</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                </a>
+            </li>
+            <li class="heading">
+                <h3 class="uppercase">Yönetim Paneli</h3>
+            </li>
+            <li class="nav-item  ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-diamond"></i>
+                    <span class="title">Yönetim</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="ui_colors.html" class="nav-link ">
+                            @Html.ActionLink("Kullanıcı Yönetimi", "Members", "Members")
+                        </a>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="ui_colors.html" class="nav-link ">
+                            @Html.ActionLink("Yetkili", "Index", "Manage")
+                        </a>
+                    </li>
+                    @*<li class="nav-item  ">
+                        <a href="ui_confirmations.html" class="nav-link "> 
+                            <span class="title">Ziyaretçiler</span>
+                        </a>
+                    </li>*@
+                    <li class="nav-item  ">
+                        <a href="ui_confirmations.html" class="nav-link ">
+                            @Html.ActionLink("Cihaz Yönetimi", "Devices", "Devices")
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="heading">
+                <h3 class="uppercase">Raporlar</h3>
+            </li>
+            <li class="nav-item  ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-bar-chart"></i>
+                    <span class="title">Kullanıcı Raporları</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        @Html.ActionLink("Genel Geçiş Raporu", "EventHistory", "Analytics")
+
+                    </li>
+                    <li class="nav-item  ">
+                        @Html.ActionLink("İçerideki Kullanıcılar Listesi", "InInsideUserAnalytics", "Analytics")
+
+                    </li>
+                    <li class="nav-item  ">
+                        @Html.ActionLink("Cihaz Bazlı Geçiş Raporu", "EventHistoryBasedonDevice", "Analytics")
+                    </li>
+
+
+                    <li class="nav-item  ">
+                        @Html.ActionLink("Lokasyona Bağlı Geçiş Raporu", "EventHistoryBasedonLocation", "Analytics")
+                    </li>
+
+                    @* <li class="nav-item  ">
+                                    *<li class="nav-item  ">
+                            <a href="layout_classic_page_head.html" class="nav-link ">
+                                <span class="title">Lokasyon Bazlı Geçiş Raporu</span>
+                            </a>
+                        </li>
+
+                            <a href="layout_content_grey.html" class="nav-link ">
+                                <span class="title">Kullanıcı Geçiş Raporu</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="layout_content_grey.html" class="nav-link ">
+                                <span class="title">Ziyaretçi Raporu</span>
+                            </a>
+                        </li>*@
+                    <li class="nav-item  ">
+                        @Html.ActionLink("Kullanıcı Listesi", "UserAnalytics", "Analytics")
+                    </li>
+                    <li class="nav-item  ">
+                        @Html.ActionLink("Cihaz Raporu", "DeviceAnalytics", "Analytics")
+
+                    </li>
+                </ul>
+                <!-- END SIDEBAR MENU -->
+                <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR -->
+</div>
